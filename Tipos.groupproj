@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{A08BC1F4-1B40-41EA-A94A-691B2DF7578F}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Projeto\TposEnumerados.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="TposEnumerados">
+        <MSBuild Projects="Projeto\TposEnumerados.dproj"/>
+    </Target>
+    <Target Name="TposEnumerados:Clean">
+        <MSBuild Projects="Projeto\TposEnumerados.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TposEnumerados:Make">
+        <MSBuild Projects="Projeto\TposEnumerados.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="TposEnumerados"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="TposEnumerados:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="TposEnumerados:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
